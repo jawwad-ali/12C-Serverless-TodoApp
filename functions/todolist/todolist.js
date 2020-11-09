@@ -3,7 +3,7 @@ const faunadb = require('faunadb'),
   q = faunadb.query;
 require('dotenv').config();
 
-const typeDefs = gql`
+const typeDefs = gql` 
 
   type Query {
     todo:[Todo!]

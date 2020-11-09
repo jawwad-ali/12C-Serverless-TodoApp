@@ -1,10 +1,11 @@
 import React from "react"
+// import React from "react"
 import { useQuery, useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./style.css"
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import EditIcon from '@material-ui/icons/Edit';
+import "./style.css"
+import Loading from "./Components/Loading"
 
 const APOLLO_QUERY = gql`
 {
@@ -70,7 +71,7 @@ export default function Home() {
   }
 
   if (loading)
-    return <h4>Loading....</h4>
+    return <Loading />
   if (error)
     return <h4>Error</h4>
 
@@ -79,7 +80,7 @@ export default function Home() {
     <div>
       <div className="container-fluid ">
         <div className="text-center bg-primary py-2 text-white heading-div">
-          <h1 className="text-uppercase">Serverless Crud App</h1>
+          <h1 className="text-uppercase">Serverless Todo App</h1>
         </div>
         <div className="row ">
           <div className="col-lg-6 mt-3 offset-lg-3">
@@ -108,7 +109,6 @@ export default function Home() {
                     <div className="data-lef-div">
                       <HighlightOffIcon className="icon cross-icon" onClick={() => handleDelete(mark.id)}
                       />
-                      <EditIcon className="icon edit-icon" />
                     </div>
                   </div>
                   <hr />
